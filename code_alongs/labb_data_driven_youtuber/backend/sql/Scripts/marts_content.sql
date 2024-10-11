@@ -98,6 +98,27 @@ ORDER BY totala_visningar DESC, STRPTIME(vtab."Publiceringstid för video", '%b 
 
 
 SELECT * FROM marts.views_top_10;
+
+CREATE TABLE IF NOT EXISTS marts.views_latest_10 AS (
+WITH video_table AS (SELECT * FROM Innehåll.Tabelldata),
+     video_diagram AS (SELECT * FROM Innehåll.Diagramdata)
+SELECT 
+    DISTINCT(vtab."Videotitel"),
+    vtab."Publiceringstid för video",
+    vtab.visningar AS totala_visningar,
+    vtab."Visningstid (timmar)",
+    vtab.Prenumeranter,
+FROM
+    video_table AS vtab
+LEFT JOIN video_diagram AS vdia
+ON vtab."Publiceringstid för video" = vdia."Publiceringstid för video"
+WHERE 
+    STRPTIME(vtab."Publiceringstid för video", '%b %d, %Y') >= STRPTIME('2024-01-01', '%Y-%m-%d')
+ORDER BY (STRPTIME(vtab."Publiceringstid för video", '%b %d, %Y'), totala_visningar) DESC LIMIT 10);
+
+
+SELECT * FROM marts.views_latest_10;
+
 SELECT * FROM information_schema.tables WHERE table_schema = 'marts';
 
 
