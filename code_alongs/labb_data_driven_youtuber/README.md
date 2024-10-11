@@ -1,5 +1,5 @@
 # Lab Overview - The Data Driver YouTuber
-___
+
 I denna labb skapas ett dashboard för att analysera och få insikt i statistik och trafik för en YouTube-sida. Koden är organiserad i separata filer för att göra den så tydlig och lätt att följa som möjligt.
 
 Först bearbetas och struktureras CSV-filer med data för att skapa en databas. En EDA (Exploratory Data Analysis) genomförs för att undersöka datan, och sedan används SQL-queries för att extrahera relevant information från tabeller. Detta kommer att förklaras kort nedan:
@@ -25,7 +25,6 @@ Denna SQL-fil skapades för att dubbelkolla om de skapade filerna finns.
 
 ## delete_tables.sql
 Denna SQL-fil skapades för att radera tabeller som har fel på ett snabbt sätt.
-___
 
 # .py files
 
@@ -37,4 +36,3 @@ ___
 
 ## dashboard.py
 - Alla KPI:er, grafer, anropas och sätts ihop till en välorganiserad dashboard.
-___
